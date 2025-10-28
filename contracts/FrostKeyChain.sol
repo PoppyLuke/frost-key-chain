@@ -87,7 +87,7 @@ contract FrostKeyChain is SepoliaConfig {
         bytes calldata signature
     ) external {
         require(id < _keys.length, "Key does not exist");
-        require(_keys[id].owner == address(this), "Not the owner");
+        require(_keys[id].owner == msg.sender, "Not the owner");
 
         _verifyUpdateSignature(id, signature);
 
