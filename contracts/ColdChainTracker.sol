@@ -78,7 +78,8 @@ contract ColdChainTracker is SepoliaConfig {
         uint256 id = _logs.length - 1;
         _logsOf[msg.sender].push(id);
 
-        // ACL: allow user to access the encrypted temperature for re-encryption
+        // ACL: allow contract and user to access the encrypted temperature for re-encryption
+        FHE.allowThis(_logs[id].encryptedTemperature);
         FHE.allow(_logs[id].encryptedTemperature, msg.sender);
 
         emit TemperatureRecorded(id, msg.sender, location, cargo, log.timestamp, isWarning);
