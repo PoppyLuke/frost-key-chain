@@ -75,7 +75,7 @@ export const FrostKeyChainApp = () => {
 
   const handleStoreKey = async () => {
     if (!newKeyName || !newKeyValue) return;
-    const value = newKeyValue;
+    const value = BigInt(newKeyValue);
     await frostKeyChain.storeKey(newKeyName, value);
     setNewKeyName("");
     setNewKeyValue("");
