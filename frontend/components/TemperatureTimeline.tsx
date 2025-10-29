@@ -170,7 +170,7 @@ export const TemperatureTimeline = ({ logs, decryptTemperature, canDecrypt }: Te
                 size="sm"
                 onClick={() => handleViewData(log)}
                 className="flex items-center gap-2 transition-all duration-300"
-                disabled={!isConnected || !canDecrypt || unlocking === log.id}
+                disabled={!isConnected || !canDecrypt || unlocking === log.id || !!log.decryptedTemperature}
               >
                 {unlocking === log.id ? (
                   <>
