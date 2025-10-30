@@ -75,10 +75,19 @@ export const FrostKeyChainApp = () => {
 
   const handleStoreKey = async () => {
     if (!newKeyName || !newKeyValue) return;
-    const value = BigInt(newKeyValue);
-    await frostKeyChain.storeKey(newKeyName, value);
-    setNewKeyName("");
-    setNewKeyValue("");
+    if (newKeyName.length > 100) {
+      alert("Key name must be 100 characters or less");
+      return;
+    }
+    try {
+      const value = BigInt(newKeyValue);
+      await frostKeyChain.storeKey(newKeyName, value);
+      setNewKeyName("");
+      setNewKeyValue("");
+    } catch (error) {
+      console.error("Failed to store key:", error);
+      alert("Failed to store key. Please check your input and try again.");
+    }
   };
 
   return (
