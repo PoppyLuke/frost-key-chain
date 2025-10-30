@@ -83,7 +83,7 @@ export const FHECounterDemo = () => {
       <div className="mx-auto">
         <button
           className={buttonClass}
-          disabled={!isConnected}
+          disabled={isConnected}
           onClick={connect}
         >
           <span className="text-4xl p-6">Connect to MetaMask</span>
