@@ -54,6 +54,9 @@ contract FrostKeyChain is SepoliaConfig {
         bytes calldata inputProof,
         bytes calldata signature
     ) external {
+        require(bytes(keyName).length > 0, "Key name cannot be empty");
+        require(bytes(keyName).length <= 100, "Key name too long");
+        
         _verifyStoreSignature(keyName, signature);
         euint64 encryptedValue = FHE.fromExternal(encValue, inputProof);
 
