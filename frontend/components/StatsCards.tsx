@@ -1,6 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
+import { TrendingUp, AlertTriangle, Users, Activity } from "lucide-react";
 import { Package, Thermometer, Shield, TrendingDown } from "lucide-react";
 
 interface StatsCardsProps {
