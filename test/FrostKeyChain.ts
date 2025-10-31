@@ -1,7 +1,8 @@
 import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
-import { ethers, fhevm } from "hardhat";
-import { FrostKeyChain, FrostKeyChain__factory } from "../types";
 import { expect } from "chai";
+import { ethers, fhevm } from "hardhat";
+import { FrostKeyChain, FrostKeyChain__factory } from "../typechain-types";
+import { SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
 import { FhevmType } from "@fhevm/hardhat-plugin";
 
 type Signers = {
