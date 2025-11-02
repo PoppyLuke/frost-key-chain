@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { Shield, Thermometer, Key } from "lucide-react";
 
 export const Header = () => {
   return (
