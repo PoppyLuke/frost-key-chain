@@ -62,6 +62,9 @@ contract ColdChainTracker is SepoliaConfig {
         bool isWarning,
         bytes calldata signature
     ) external {
+        require(bytes(location).length > 0, "Location cannot be empty");
+        require(bytes(cargo).length > 0, "Cargo description cannot be empty");
+        
         _verifyRecordSignature(location, cargo, signature);
         euint64 encryptedTemperature = FHE.fromExternal(encTemp, inputProof);
 
