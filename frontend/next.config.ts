@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    serverComponentsExternalPackages: ["@fhevm/solidity"],
+  },
   headers() {
     // Required by FHEVM 
     return Promise.resolve([
