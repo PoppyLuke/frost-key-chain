@@ -24,14 +24,16 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="border-t border-border/40 bg-card">
+    <footer className="w-full border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Key className="h-4 w-4 text-primary" />
-            <span> {new Date().getFullYear()} Secure ColdChain Tracker. All rights reserved.</span>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-sm text-muted-foreground">
+            &copy; 2024 ColdChain FHE. Built with FHEVM technology.
           </div>
-
+          <div className="flex items-center gap-4 text-sm text-muted-foreground">
+            <span>Powered by</span>
+            <span className="font-semibold text-primary">Zama FHE</span>
+          </div>
           <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20">
             <Shield className="h-5 w-5 text-primary" />
             <div className="flex flex-col">
