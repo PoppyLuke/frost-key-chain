@@ -47,6 +47,16 @@ export const UploadSection = ({ onUpload, recordTemperature, isRecording }: Uplo
       return;
     }
 
+    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      
+      if (file.size > 10 * 1024 * 1024) {
+        alert('File size must be less than 10MB');
+        return;
+      }
+    };
+
     if (!formData.temperature || !formData.location || !formData.cargo) {
       toast.error("Please fill in all fields");
       return;
