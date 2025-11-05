@@ -91,6 +91,7 @@ contract FrostKeyChain is SepoliaConfig {
     ) external {
         require(id < _keys.length, "Key does not exist");
         require(_keys[id].owner == msg.sender, "Not the owner");
+        require(_keys[id].updatedAt < uint64(block.timestamp), "Cannot update same timestamp");
 
         _verifyUpdateSignature(id, signature);
 
