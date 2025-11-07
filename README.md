@@ -4,13 +4,12 @@ A privacy-preserving cold chain temperature monitoring system built with **Fully
 
 ## 🌟 Features
 
-- **🔒 Encrypted Temperature Storage**: All temperature data is encrypted on-chain using FHE
-- **✍️ Wallet Signature Authentication**: Secure record submission with wallet-based signatures
-- **🌡️ Negative Temperature Support**: Handles temperatures from -100°C to +100°C
-- **🔓 Privacy-Preserving Decryption**: Only authorized users can decrypt temperature data
-- **📊 Real-time Monitoring**: Track shipments with location, cargo, and temperature data
-- **⚠️ Alert System**: Automatic warnings for temperature threshold violations
-- **🎨 Modern UI**: Built with Next.js 15, React 19, and TailwindCSS
+- **FHE Key Storage**: Securely store encrypted keys with FHE and signature verification
+- **Temperature Monitoring**: Track cold chain logistics with encrypted temperature data and warning alerts
+- **FHE Counter**: Demonstrate basic FHE arithmetic operations with increment/decrement
+- **Web3 Integration**: MetaMask wallet connection and multi-chain support
+- **Modern UI**: Built with Next.js, TypeScript, and Tailwind CSS with responsive design
+- **Security Features**: Input validation, access control, and comprehensive error handling
 
 ## 🎥 Demo
 
