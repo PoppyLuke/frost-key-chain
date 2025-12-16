@@ -13,7 +13,7 @@ A privacy-preserving cold chain temperature monitoring system built with **Fully
 
 ## 🎥 Demo
 
-**🌐 Live Demo**: [https://frost-key-chain.vercel.app/](https://frost-key-chain.vercel.app/)
+**🌐 Live Demo**: [https://frost-key-chain.vercel.app/](https://forst-key-chain-1.vercel.app/)
 
 **📹 Video Demo**: [Watch demo.mp4](./demo.mp4)
 

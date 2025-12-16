@@ -17,7 +17,7 @@ import "./tasks/FHECounter";
 // Run 'npx hardhat vars setup' to see the list of variables that need to be set
 
 // Provide a safe fallback for Hardhat <2.22 where `vars` is not available
-const vars = (_vars as any) ?? { get: (_name: string, fallback = "") => fallback };
+const vars = { get: (_name: string, fallback = "") => fallback };
 
 const MNEMONIC: string = process.env.MNEMONIC ?? vars.get("MNEMONIC", "test test test test test test test test test test test junk");
 const INFURA_API_KEY: string = process.env.INFURA_API_KEY ?? vars.get("INFURA_API_KEY", "");

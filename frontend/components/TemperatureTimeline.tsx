@@ -81,27 +81,34 @@ export const TemperatureTimeline = ({ logs, decryptTemperature, canDecrypt }: Te
       </div>
 
       <div className="relative space-y-4">
-        {/* Timeline line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/20" />
+        {/* Timeline line with animated gradient */}
+        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/20 animate-pulse" />
 
-        {logs.map((log) => (
+        {logs.map((log, index) => (
           <Card
             key={log.id}
-            className={`relative ml-16 p-6 transition-all duration-300 ${
+            className={`relative ml-16 p-6 transition-all duration-500 hover:scale-[1.02] transform ${
               !log.decryptedTemperature
-                ? "bg-card border-border/40 opacity-60"
+                ? "bg-card border-border/40 opacity-60 hover:opacity-80"
                 : log.isWarning
-                ? "bg-gradient-to-br from-card to-orange-500/10 border-orange-500/30 shadow-lg"
-                : "bg-gradient-to-br from-card to-primary/5 border-primary/30 shadow-lg"
+                ? "bg-gradient-to-br from-card to-orange-500/10 border-orange-500/30 shadow-lg hover:shadow-xl hover:border-orange-500/50"
+                : "bg-gradient-to-br from-card to-primary/5 border-primary/30 shadow-lg hover:shadow-xl hover:border-primary/50"
             }`}
+            style={{
+              animation: `fadeInUp 0.5s ease-out ${index * 0.1}s both`,
+            }}
           >
-            {/* Timeline node */}
+            {/* Timeline node with pulse animation */}
             <div
-              className={`absolute -left-[52px] top-6 flex h-8 w-8 items-center justify-center rounded-full bg-background border-2 ${
-                log.isWarning ? "border-orange-500" : "border-primary"
-              }`}
+              className={`absolute -left-[52px] top-6 flex h-8 w-8 items-center justify-center rounded-full bg-background border-2 transition-all duration-300 ${
+                log.isWarning 
+                  ? "border-orange-500 shadow-orange-500/50" 
+                  : "border-primary shadow-primary/50"
+              } ${log.decryptedTemperature ? "shadow-lg animate-pulse" : ""}`}
             >
-              <Thermometer className={`h-4 w-4 ${log.isWarning ? "text-orange-500" : "text-primary"}`} />
+              <Thermometer className={`h-4 w-4 transition-all duration-300 ${
+                log.isWarning ? "text-orange-500" : "text-primary"
+              }`} />
             </div>
 
             <div className="flex items-start justify-between gap-4">

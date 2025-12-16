@@ -47,16 +47,6 @@ export const UploadSection = ({ onUpload, recordTemperature, isRecording }: Uplo
       return;
     }
 
-    const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files?.[0];
-      if (!file) return;
-      
-      if (file.size > 10 * 1024 * 1024) {
-        alert('File size must be less than 10MB');
-        return;
-      }
-    };
-
     if (!formData.temperature || !formData.location || !formData.cargo) {
       toast.error("Please fill in all fields");
       return;
@@ -97,16 +87,22 @@ export const UploadSection = ({ onUpload, recordTemperature, isRecording }: Uplo
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg">
+        <Button 
+          size="lg" 
+          className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+        >
           <Plus className="h-5 w-5 mr-2" />
-          Record Temperature
+          <span className="hidden sm:inline">Record Temperature</span>
+          <span className="sm:hidden">Record</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-[600px] animate-slide-in-right">
         <DialogHeader>
-          <DialogTitle>Record Temperature Reading</DialogTitle>
-          <DialogDescription>
-            Add a new temperature log for cold chain monitoring. Data will be encrypted on-chain.
+          <DialogTitle className="text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Record Temperature Reading
+          </DialogTitle>
+          <DialogDescription className="text-sm">
+            Add a new temperature log for cold chain monitoring. Data will be encrypted on-chain using FHE technology.
           </DialogDescription>
         </DialogHeader>
 
